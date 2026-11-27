@@ -26,7 +26,7 @@ function Linkedin({ size = 18, ...props }) {
    DATA — swap these out with your real details
 ------------------------------------------------------------------ */
 const PROFILE = {
-  name: "K.G.S.Vishwajith",
+  name: "K.G.S. Vishwajith",
   handle: "shashika",
   role: "Undergraduate · Computer Science",
   uni: "University of Colombo School of Computing (UCSC)",
@@ -36,9 +36,8 @@ const PROFILE = {
   from small scripts to full web applications — and I'm always learning something new.`,
   email: "shashikavishwajith2024@gmail.com",
   github: "https://github.com/shashikavishwajith",
-  linkedin: "https://linkedin.com/in/shashika-vishwajith-310451400",
-  cvUrl: "#",
-  // 👉 Replace this with your own photo URL (e.g. an uploaded image link, or import it locally).
+  linkedin: "https://www.linkedin.com/in/shashika-vishwajith-310451400",
+  cvUrl: "./cv.pdf",
   photo: photo,
 };
 
@@ -58,9 +57,19 @@ const PROJECTS = [
     title: "NexusEnroll - University Course Enrolment System",
     desc: "A modernised university course enrolment system built as a proof-of-concept for the Software Architecture (SCS 2303) module, University of Colombo School of Computing (UCSC).",
     tags: ["Java"],
+    image :  "./project1.png",
     link: "#",
     repo: "https://github.com/shashikavishwajith/nexus-enroll-system",
   }
+  ,
+    {
+    title: "HopeLink - Community Charity Coordination Platform",
+    desc: "Group project (Group 44): a community-scoped charity service coordination platform built with vanilla PHP, MySQL and HTML/CSS/JavaScript, with no frameworks.",
+    tags: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
+    image :  "./project2.png",
+    link: "#",
+    repo: "https://github.com/shashikavishwajith/hopelink",
+  },
 ];
 
 const EDUCATION = [
@@ -481,16 +490,7 @@ function Nav({ dark, setDark, onBrandClick }) {
   const [open, setOpen] = useState(false);
   return (
     <nav className="nav">
-      <a
-        href="#home"
-        className="brand"
-        onClick={(e) => { e.preventDefault(); onBrandClick(); }}
-        title="Click me!"
-      >
-        <Terminal size={18} strokeWidth={2.4} />
-        <span>{PROFILE.handle}</span>
-        <span className="blink-underscore">_</span>
-      </a>
+<a href="#home" className="brand">Portfolio</a>
       <div className={`nav-links ${open ? "nav-open" : ""}`}>
         {links.map(([href, label]) => (
           <a key={href} href={href} onClick={() => setOpen(false)}>
@@ -520,7 +520,7 @@ export default function Portfolio() {
   return (
     <div className={dark ? "app dark" : "app light"}>
       <div className="bg-fx" aria-hidden="true">
-        <ParticleField />
+       {/* <ParticleField /> */}
       </div>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
@@ -673,8 +673,15 @@ export default function Portfolio() {
         }
         .eyebrow::before{content:"//";color:var(--amber);}
         .hero h1{
-          font-size:clamp(38px,6vw,68px);line-height:1.08;font-weight:700;margin:0 0 18px;
-        }
+          font-size:clamp(30px,4.6vw,56px);line-height:1.1;font-weight:700;margin:0 0 18px;
+          }
+        .hero h1 .hero-line{
+          display:block;white-space:nowrap;
+          }
+        .hero h1 .hero-sub{
+          display:block;margin-top:12px;
+          font-size:clamp(20px,2.6vw,30px);font-weight:600;line-height:1.3;
+         }
         .hero h1 .accent{
           font-weight:800;
           background:linear-gradient(90deg, var(--amber), var(--cyan), var(--amber));
@@ -726,7 +733,6 @@ export default function Portfolio() {
         .avatar-ring{
           width:132px;height:132px;border-radius:50%;padding:4px;
           background:conic-gradient(from 0deg, var(--amber), var(--cyan), var(--amber));
-          animation:spin 6s linear infinite;
           box-shadow:0 0 0 6px color-mix(in srgb, var(--amber) 10%, transparent);
           transition:box-shadow .4s ease, transform .4s cubic-bezier(.2,.8,.2,1);
         }
@@ -933,6 +939,12 @@ export default function Portfolio() {
           transform:rotate(-10deg) scale(1.1);
           background:var(--amber);color:var(--ink);
         }
+        .project-img{
+          width:calc(100% + 52px);height:170px;object-fit:cover;
+          margin:-26px -26px 18px;
+          border-radius:var(--radius) var(--radius) 0 0;
+          border-bottom:1px solid var(--line);
+}
         .project-card h3{font-size:18px;margin:0 0 10px;}
         .project-card p{color:var(--muted);font-size:14px;line-height:1.65;flex:1;margin-bottom:18px;}
         .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
@@ -1068,18 +1080,19 @@ export default function Portfolio() {
           .reveal,.terminal,.blink-underscore,.caret{animation:none !important;transition:none !important;opacity:1 !important;transform:none !important;}
         }
       `}</style>
-
+      <Nav dark={dark} setDark={setDark} onBrandClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} />
+{/*
       <Nav dark={dark} setDark={setDark} onBrandClick={() => setRainTrigger((t) => t + 1)} />
-      <CodeRain trigger={rainTrigger} />
+      <CodeRain trigger={rainTrigger} />*/}
 
       {/* HERO */}
       <section id="home" className="hero container">
         <div>
           <div className="eyebrow">status: available for internships</div>
-          <h1>
-            Hi, I'm <span className="accent">{PROFILE.name.split(" ").slice(-1)}</span> —
-            an Computer Science undergrad turning ideas into code.
-          </h1>
+         <h1>
+            <span className="hero-line">Hi, I'm <span className="accent">Shashika</span></span>
+            <span className="hero-sub">a Computer Science undergraduate turning ideas into code.</span>
+         </h1>
           <p className="lede">{PROFILE.tagline} Currently studying at {PROFILE.uni}.</p>
           <div className="btn-row">
             <a href={PROFILE.cvUrl} className="btn btn-primary"><Download size={16} /> Download CV</a>
@@ -1168,7 +1181,11 @@ export default function Portfolio() {
             {PROJECTS.map((p, i) => (
               <Reveal key={p.title} delay={i * 100}>
                 <div className="project-card">
-                  <div className="project-icon"><FolderGit2 size={20} /></div>
+                  {p.image ? (
+                   <img className="project-img" src={p.image} alt={p.title} loading="lazy" />
+                      ) : (
+                   <div className="project-icon"><FolderGit2 size={20} /></div>
+                      )}
                   <h3>{p.title}</h3>
                   <p>{p.desc}</p>
                   <div className="tag-row">{p.tags.map((t) => <span key={t} className="tag">{t}</span>)}</div>
