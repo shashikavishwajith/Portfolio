@@ -28,12 +28,12 @@ function Linkedin({ size = 18, ...props }) {
 const PROFILE = {
   name: "K.G.S. Vishwajith",
   handle: "shashika",
-  role: "Undergraduate · Computer Science",
+  role: "Undergraduate - Computer Science",
   uni: "University of Colombo School of Computing (UCSC)",
   tagline: "Building things at the intersection of clean code and good design.",
   bio: `I'm an undergraduate at UCSC, currently sharpening my skills in full-stack
-  development and problem solving. I enjoy turning ideas into working software —
-  from small scripts to full web applications — and I'm always learning something new.`,
+  development and problem solving. I enjoy turning ideas into working software -
+  from small scripts to full web applications - and I'm always learning something new.`,
   email: "shashikavishwajith2024@gmail.com",
   github: "https://github.com/shashikavishwajith",
   linkedin: "https://www.linkedin.com/in/shashika-vishwajith-310451400",
@@ -42,10 +42,10 @@ const PROFILE = {
 };
 
 const SKILLS = [
-  { name: "HTML", level: 90, cat: "Frontend" },
+  { name: "HTML", level: 80, cat: "Frontend" },
   { name: "CSS", level: 85, cat: "Frontend" },
-  { name: "JavaScript", level: 82, cat: "Frontend" },
-  { name: "React", level: 78, cat: "Frontend" },
+  { name: "JavaScript", level: 70, cat: "Frontend" },
+  { name: "React", level: 70, cat: "Frontend" },
   { name: "C++", level: 80, cat: "Core" },
   { name: "PHP", level: 70, cat: "Backend" },
   { name: "MySQL", level: 72, cat: "Backend" },
